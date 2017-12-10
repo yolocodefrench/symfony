@@ -9,35 +9,54 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
 
-    
-
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="pageMenuPrincipale")
      */
-    public function indexAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+    public function menu_principaleAction(){
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        //$this->denyAccessUnlessGranted('ROLE_ADMIN');
+       
+        return $this->render('default/accueil.html.twig',[]);
     }
 
     /**
-     * @Route("/multiplication/{numberA}/{numberB}", name="multiplication")
+     * @Route("/projets", name="pageProjet")
      */
-    public function multiplication($numberA, $numberB) {
-        return $this->render('default/number.html.twig', [
-            'numberA' => $numberA,
-            'numberB' => $numberB
-        ]);
+    public function projetsAction(){
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        return $this->render('default/accueil.html.twig',[]);
     }
 
     /**
-     * @Route("/cdp", name="test")
+     * @Route("/utilisateurs", name="pageUtilisateurs")
      */
-    public function nouvelleAction(){
-        return $this->render('default/test.html.twig',[]);
+    public function utilisateursAction(){
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        return $this->render('default/accueil.html.twig',[]);
     }
 
+    /**
+     * @Route("/messagerie", name="pageMessagerie")
+     */
+    public function messagerieAction(){
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        return $this->render('default/accueil.html.twig',[]);
+    }
+
+    /**
+     * @Route("/entreprises", name="pageEntreprises")
+     */
+    public function entreprisesAction(){
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        return $this->render('default/accueil.html.twig',[]);
+    }
+
+    /**
+     * @Route("/logs", name="pageLogs")
+     */
+    public function logsAction(){
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        return $this->render('default/accueil.html.twig',[]);
+    }
 
 }
