@@ -39,5 +39,12 @@ class DefaultController extends Controller
         return $this->render('default/test.html.twig',[]);
     }
 
+    /**
+     * @Route("/test", name="test")
+     */
+    public function test2Action(){
+        return $this->render('default/test2.html.twig',[]);
+    }
+
 
 }
