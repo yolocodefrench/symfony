@@ -1,0 +1,24 @@
+
+
+
+
+{% block test %}
+    <!DOCTYPE html>
+<html>
+    <title> accueil </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/symfo.css" >
+    </head>
+
+  <body>
+      <div id="page_carre">
+      <div id="page_gauche">
+            {% include "barre_gauche.html.twig" %}
+      </div>
+      <div id="droite">
+            {% include "header.html.twig" %}
+      </div>
+      </div> 
+  </body>
+
+</html>{% endblock %}
