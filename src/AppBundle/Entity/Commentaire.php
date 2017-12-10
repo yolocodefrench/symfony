@@ -46,6 +46,8 @@ class Commentaire
      * @var int
      *
      * @ORM\Column(name="priorite", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Priorite", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $priorite;
 
@@ -54,6 +56,8 @@ class Commentaire
      * @var int
      *
      * @ORM\Column(name="id_projet", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idProjet;
     /**

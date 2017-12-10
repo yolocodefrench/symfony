@@ -43,9 +43,11 @@ class Projet
     private $ydaysPerso;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="status_evaluations", type="string", length=255)
+     * @ORM\Column(name="status_evaluations", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\StatusEvaluation", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $statusEvaluations;
 
@@ -58,22 +60,28 @@ class Projet
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="id_utilisateurs", type="integer")
+     * 
+     * @ORM\Column(name="id_utilisateur", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idUtilisateurs;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="id_utilisateurs_1", type="integer")
+     * @ORM\Column(name="id_utilisateur1", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $idUtilisateurs1;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="id_entreprises", type="integer", nullable="true")
+     * @ORM\Column(name="id_entreprise", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idEntreprises;
 

@@ -11,6 +11,9 @@
                 <img src="../image/Screenshot-2017-12-8%20Ynov%20-%20Connexion.png" />
             </div>
             <div id="boite_centre">
+                {% for test in product %}
+                    {{ test.nom }}
+                {% endfor %}
             </div>
             <div id="boite_droite">
                 <input id="email" type="text" placeholder="E-mail" />

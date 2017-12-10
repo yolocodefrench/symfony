@@ -12,21 +12,20 @@ use AppBundle\Entity\Utilisateur;
  */
 class UtilisateurRepository extends \Doctrine\ORM\EntityRepository
 {
-	public function insertUserFull($nom, $prenom, $classeOuFonction, $role, $projet, $mail, $tel, $slackName, $actif, $fkStatus, $frProjet){
+	public function insertUserFull($nom, $prenom, $classeOuFonction, $role, $mail, $tel, $slackName, $actif, $fkStatus, $fkProjet){
 
 		$user = new Utilisateur();
 		$user->setNom($nom);
 		$user->setPrenom($prenom);
 		$user->setClasseOuFonction($classeOuFonction);
 		$user->setRole($role);
-		$user->setProjet($projet);
 		$user->setMail($mail);
 		$user->setTel($tel);
 		$user->setNomSlack($slackName);
 		$user->setNomSlack($slackName);
 		$user->setActif($actif);
 		$user->setIdStatuts($fkStatus);
-		$user->setIdProjets($frProjet);
+		$user->setIdProjets($fkProjet);
 		$em = $this->getDoctrine()->getManager();
 	    $em->persist($product);
 	    $em->flush();

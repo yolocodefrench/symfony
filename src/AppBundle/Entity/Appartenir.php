@@ -25,6 +25,8 @@ class Appartenir
      * @var int
      *
      * @ORM\Column(name="id_user", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idUser;
 
@@ -32,6 +34,8 @@ class Appartenir
      * @var int
      *
      * @ORM\Column(name="id_entreprise", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idEntreprise;
 

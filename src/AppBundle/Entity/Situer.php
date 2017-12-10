@@ -25,6 +25,8 @@ class Situer
      * @var int
      *
      * @ORM\Column(name="id_projet", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idProjet;
 
@@ -32,6 +34,8 @@ class Situer
      * @var int
      *
      * @ORM\Column(name="id_salles", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Salle", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idSalles;
 

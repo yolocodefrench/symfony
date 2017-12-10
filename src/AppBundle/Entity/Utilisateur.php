@@ -53,6 +53,8 @@ class Utilisateur
      * @var int
      *
      * @ORM\Column(name="projet", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $projet;
 
@@ -95,8 +97,19 @@ class Utilisateur
      * @var int
      *
      * @ORM\Column(name="id_projets", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idProjets;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id_entreprise", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idEntreprise;
 
 
     /**
@@ -371,6 +384,30 @@ class Utilisateur
     public function getIdProjets()
     {
         return $this->idProjets;
+    }
+
+    /**
+     * Set idEntreprise
+     *
+     * @param integer $idEntreprise
+     *
+     * @return Utilisateur
+     */
+    public function setIdEntreprise($idEntreprise)
+    {
+        $this->idEntreprise = $idEntreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get idEntreprise
+     *
+     * @return int
+     */
+    public function getdEntreprise()
+    {
+        return $this->idEntreprise;
     }
 }
 
