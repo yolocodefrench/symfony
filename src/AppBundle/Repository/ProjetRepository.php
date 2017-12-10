@@ -30,7 +30,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
 	}
 
 	//Met le projet en mode archivé
-	public function archiveProjet($idProjet){
+	public function updateArchiveProjet($idProjet){
 
 		$repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Projet');
 
@@ -42,7 +42,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
 	}
 
 	//ajout chef de projet
-	public function insertChefDeProjet($idProjet, $idUser){
+	public function updateChefDeProjet($idProjet, $idUser){
 
 		$repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Projet');
 
@@ -54,7 +54,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
 	}
 
 	//ajout Helper
-	public function insertHelper($idProjet, $idUser){
+	public function updatetHelper($idProjet, $idUser){
 
 		$repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Projet');
 
@@ -66,7 +66,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
 	}
 
 	//ajout entreprise
-	public function insertEntreprise($idProjet, $idEntreprise){
+	public function updateEntreprise($idProjet, $idEntreprise){
 
 		$repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Projet');
 
