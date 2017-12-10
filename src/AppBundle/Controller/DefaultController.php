@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Utilisateur;
+use AppBundle\Entity\Projet;
 
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -32,30 +33,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/multiplication/{numberA}/{numberB}", name="multiplication")
+     * @Route("/multiplication/", name="multiplication")
      */
-    public function multiplication($numberA, $numberB) {
-        return $this->render('default/number.html.twig', [
+    public function multiplication() {
+        /*return $this->render('default/number.html.twig', [
             'numberA' => $numberA,
             'numberB' => $numberB
         ]);
-    }
-
-    /**
-     * @Route("/cdp", name="test")
-     */
-    public function nouvelleAction(){
-        return $this->render('default/test.html.twig',[]);
-    }
-
-    /**
-     * @Route("/test", name="test")
-     */
-    public function testAction(){
-
+        */
         $user = $this->getDoctrine()
-        ->getRepository('AppBundle:Utilisateur')
-        ->find(1);
+        ->getRepository('AppBundle:Projet')
+        ->findProjetArray();
 
         if (!$user) {
             throw $this->createNotFoundException(
@@ -64,7 +52,28 @@ class DefaultController extends Controller
         }
 
         return $this->render('default/test.html.twig',[
-            'product' => $user->getPrenom()
+            'product' => $user
+        ]);
+
+    }
+
+    /**
+     * @Route("/tentation/{essai}", name="test")
+     */
+    public function testAction(){
+
+        $projets = $this->getDoctrine()
+        ->getRepository('AppBundle:Projet')
+        ->findProjetArray();
+
+        if (!$projets) {
+            throw $this->createNotFoundException(
+                'No product found for id 1'
+            );
+        }
+
+        return $this->render('default/test.html.twig',[
+            'product' => $projets 
         ]);
     }
 
@@ -72,11 +81,12 @@ class DefaultController extends Controller
      * @Route("/addUser", name="test")
      */
     public function formAction(Request $request){
-        // On crée un objet Advert
-        $utilisateur = new Utilisateur();
+        
         $projets = $this->getDoctrine()
         ->getRepository('AppBundle:Projet')
-        ->findAll();
+        ->findProjetArray();
+
+        $utilisateur = new Utilisateur();
 
         // On crée le FormBuilder grâce au service form factory
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $utilisateur);

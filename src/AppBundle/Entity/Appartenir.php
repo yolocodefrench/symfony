@@ -33,11 +33,11 @@ class Appartenir
     /**
      * @var int
      *
-     * @ORM\Column(name="id_entreprise", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", cascade={"persist"})
+     * @ORM\Column(name="id_projets", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Appartenir", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $idEntreprise;
+    private $idProjets;
 
 
     /**

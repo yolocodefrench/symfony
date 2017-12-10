@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Projet;
 
 /**
  * Utilisateur
@@ -49,6 +50,14 @@ class Utilisateur
      */
     private $role;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="projet", type="integer", nullable=true)
+     */
+    private $projet;
+
     /**
      * @var int
      *
@@ -56,7 +65,7 @@ class Utilisateur
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $projet;
+    private $cdpProjet;
 
     /**
      * @var string
@@ -219,15 +228,39 @@ class Utilisateur
     }
 
     /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return Utilisateur
+     */
+    public function setProjet($projet)
+    {
+        $this->projet[]= $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getProjet()
+    {
+        return $this->projet;
+    }
+
+    /**
      * Set projet
      *
      * @param integer $projet
      *
      * @return Utilisateur
      */
-    public function setProjet($projet)
+    public function setCdpProjet($projet)
     {
-        $this->projet = $projet;
+        $this->cdpProjet = $cdpProjet;
 
         return $this;
     }
@@ -237,9 +270,9 @@ class Utilisateur
      *
      * @return int
      */
-    public function getProjet()
+    public function getCdpProjet()
     {
-        return $this->projet;
+        return $this->cdpProjet;
     }
 
     /**

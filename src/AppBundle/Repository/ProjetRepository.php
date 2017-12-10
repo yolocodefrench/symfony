@@ -77,5 +77,14 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
 		$entityManager->flush();
 	}
 
+	public function findProjetArray(){
+		return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p.nom FROM AppBundle:Projet p '
+            )
+            ->getResult();
+	}
+
+
 	
 }
