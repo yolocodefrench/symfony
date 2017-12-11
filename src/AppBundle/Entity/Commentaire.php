@@ -45,9 +45,6 @@ class Commentaire
     /**
      * @var int
      *
-     * @ORM\Column(name="priorite", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Priorite", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
      */
     private $priorite;
 
@@ -55,11 +52,13 @@ class Commentaire
     /**
      * @var int
      *
-     * @ORM\Column(name="id_projet", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * One projet a une entreprise.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", inversedBy="id")
+     * @ORM\JoinColumn(name="fk_projet", referencedColumnName="id")
      */
     private $idProjet;
+
+
     /**
      * Get id
      *
@@ -164,6 +163,30 @@ class Commentaire
     public function getPriorite()
     {
         return $this->priorite;
+    }
+
+    /**
+     * Set priorite
+     *
+     * @param integer $idProjet
+     *
+     * @return idProjet
+     */
+    public function setIdProjet($projet)
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get priorite
+     *
+     * @return int
+     */
+    public function getIdProjet()
+    {
+        return $this->projet;
     }
 }
 

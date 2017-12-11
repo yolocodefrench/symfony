@@ -33,6 +33,7 @@ class StatusEvaluation
     /**
      * One status has Many projet.
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Projet", mappedBy="status")
+     * 
      */
     private $projets;
     // ...

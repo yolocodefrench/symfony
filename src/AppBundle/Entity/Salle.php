@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Projet;
 
 /**
  * Salle
@@ -34,6 +35,16 @@ class Salle
      * @ORM\Column(name="etage", type="integer")
      */
     private $etage;
+
+    /**
+     * One Salle has Many projets.
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Projet", mappedBy="id")
+     */
+    private $projets;
+
+    public function __construct() {
+        $this->projets = new ArrayCollection();
+    }
 
 
     /**

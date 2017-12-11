@@ -31,9 +31,8 @@ class CompteRendu
     /**
      * @var int
      *
-     * @ORM\Column(name="id_projet", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", inversedBy="id")
+     * ORM\@JoinColumn(name="customer_id", referencedColumnName="id")
      */
     private $idProjet;
 

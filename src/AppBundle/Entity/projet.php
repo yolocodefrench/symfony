@@ -7,6 +7,8 @@ use AppBundle\Entity\Utilisateur;
 use Doctrine\Common\Collections\ArrayCollection;
 use AppBundle\Entity\StatusEvaluation;
 use AppBundle\Entity\Entreprise;
+use AppBundle\Entity\Salle;
+use AppBundle\Entity\CompteRendu;
 
 
 /**
@@ -25,8 +27,11 @@ class Projet
      * @ORM\GeneratedValue(strategy="AUTO")
      * One projet has One Helper.
      * 
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StatusEvaluation", inversedBy="projets")
-     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Salle", inversedBy="projets")
+     * @ORM\JoinColumn(name="projet_id", referencedColumnName="id")
+     *
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CompteRendu", mappedBy="idProjet")
      */
     private $id;
 
@@ -95,6 +100,18 @@ class Projet
      * @ORM\JoinColumn(name="fk_entreprise", referencedColumnName="id")
      */
     private $idEntreprises;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StatusEvaluation", inversedBy="projets")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+    */
+    private $statusId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Salle", inversedBy="projets")
+     * @ORM\JoinColumn(name="fk_salle", referencedColumnName="id")
+    */
+    private $idSalle;
 
 
     /**
@@ -297,6 +314,30 @@ class Projet
     public function getIdEntreprises()
     {
         return $this->idEntreprises;
+    }
+
+    /**
+     * Set statusId
+     *
+     * @param integer $statusId
+     *
+     * @return projet
+     */
+    public function setStatusId($statusId)
+    {
+        $this->statusId = $statusId;
+
+        return $this;
+    }
+
+    /**
+     * Get idEntreprises
+     *
+     * @return int
+     */
+    public function getStatusId()
+    {
+        return $this->statusId;
     }
 }
 
