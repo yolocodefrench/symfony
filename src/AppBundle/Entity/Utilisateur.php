@@ -12,7 +12,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="utilisateurs")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur extends BaseUser
+
 {
     /**
      * @var int
