@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Projet;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Utilisateur
@@ -19,6 +20,12 @@ class Utilisateur
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * One projet has One helper.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", mappedBy="helper")
+     *
+     * One projet has One chefDeProjet.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", mappedBy="chefDeProjet")
      */
     private $id;
 
@@ -50,22 +57,17 @@ class Utilisateur
      */
     private $role;
 
-
     /**
-     * @var int
-     *
-     * @ORM\Column(name="projet", type="integer", nullable=true)
+     * Plusieurs users ont plusieurs groupes.
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Projet", mappedBy="projets")
+     * @ORM\JoinTable(name="users_projets")
      */
-    private $projet;
+    private $projets;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="projet", type="integer", nullable=true)
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $cdpProjet;
+    public function __construct() {
+        $this->projets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * @var string
@@ -106,7 +108,7 @@ class Utilisateur
      * @var int
      *
      * @ORM\Column(name="id_projets", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Projet")
      * @ORM\JoinColumn(nullable=false)
      */
     private $idProjets;
