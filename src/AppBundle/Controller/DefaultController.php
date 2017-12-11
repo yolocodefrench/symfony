@@ -40,24 +40,31 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/acceuil", name="test")
+     * @Route("/login", name="test1")
      */
-    public function nouvelleAction(){
-        return $this->render('default/acceuil.html.twig',[]);
+    public function nouvelleAction2(){
+        return $this->render('default/login.html.twig',[]);
     }
 
     /**
-     * @Route("/header", name="test")
+     * @Route("/header", name="test2")
      */
-    public function nouvelleAction(){
-        return $this->render('default/header.html.twig',[]);
+    public function nouvelleAction3(){
+        return $this->render('default/header.hmtl.twig',[]);
     }
 
     /**
-     * @Route("/barre", name="test")
+     * @Route("/barre", name="test3")
      */
-    public function nouvelleAction(){
+    public function nouvelleAction4(){
         return $this->render('default/barre_gauche.html.twig',[]);
+    }
+
+    /**
+     * @Route("/acceuil", name="test4")
+     */
+    public function nouvelleAction5(){
+        return $this->render('default/acceuil.html.twig',[]);
     }
 
 

@@ -1,24 +1,24 @@
+
+
+
+
 {% block test %}
     <!DOCTYPE html>
 <html>
-    <title> acceuil </title>
+    <title> accueil </title>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/symfo.css" >
     </head>
-  <body id="body_acceuil">
-        <div id="boite_central">
-            <div id="boite_gauche">
-                <img src="../image/Screenshot-2017-12-8%20Ynov%20-%20Connexion.png" />
-            </div>
-            <div id="boite_centre">
-            </div>
-            <div id="boite_droite">
-                <input id="email" type="text" placeholder="E-mail" />
-                <input id="mdp" type="password" placeholder="Mot de passe" />
-                <input id="connexion" type="button" value="connexion" />
-            </div>
-        </div>
-    
-    </body>
+
+  <body>
+      <div id="page_carre">
+      <div id="page_gauche">
+            {% include "barre_gauche.html.twig" %}
+      </div>
+      <div id="droite">
+            {% include "header.html.twig" %}
+      </div>
+      </div> 
+  </body>
 
 </html>{% endblock %}

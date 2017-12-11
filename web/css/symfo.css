@@ -32,7 +32,7 @@
     border: 1px solid darkgrey ;
     border-radius: 8%;
     font-family: Verdana;
-    
+    padding-left: 5%;
 }
 
 #mdp
@@ -44,6 +44,7 @@
     border: 1px solid darkgrey ;
     border-radius: 8%;
     font-family: Verdana;
+    padding-left: 5%;
 }
 
 #boite_droite
@@ -157,7 +158,7 @@
  .lien
 {
     text-decoration: none;
-    color: antiquewhite;
+    color: white;
    
 }
 
@@ -209,4 +210,12 @@
 {
     color: aqua;
     margin-left: 5%;
+}
+
+/*///////////// les pages */
+
+#page_carre
+{
+    display: flex;
+    flex-direction: column-reverse;
 }
