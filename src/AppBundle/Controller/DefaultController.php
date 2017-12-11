@@ -5,6 +5,11 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\User;
+
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use AppBundle\Entity\Post;
+use AppBundle\Form\UserType;
 
 class DefaultController extends Controller
 {
@@ -23,17 +28,37 @@ class DefaultController extends Controller
      * @Route("/projets", name="pageProjet")
      */
     public function projetsAction(){
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        //$succesfullyRegistered = $this->ajouterUtilisateur("oui", "kirian", "mail666@mail.com", "pass", "ROLE_USER", "Ingesup B1", "0652140142", "kiki");
+
         return $this->render('default/accueil.html.twig',[]);
     }
 
     /**
      * @Route("/utilisateurs", name="pageUtilisateurs")
-     */
-    public function utilisateursAction(){
-        $this->denyAccessUnlessGranted('ROLE_USER');
-        return $this->render('default/accueil.html.twig',[]);
+     */    
+    public function yoloAction(Request $request)
+    {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        $form->add('submit', SubmitType::class, array(
+            'label' => 'Create',
+            'attr'  => array('class' => 'btn btn-default pull-right')
+        ));
+         $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($post);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl(
+                'admin_post_show',
+                array('id' => $post->getId())
+        ));
+        }
+        return $request;
     }
+    
 
     /**
      * @Route("/messagerie", name="pageMessagerie")
@@ -59,4 +84,36 @@ class DefaultController extends Controller
         return $this->render('default/accueil.html.twig',[]);
     }
 
+
+
+
+    private function ajouterUtilisateur($nom, $prenom, $mail, $password, $role, $classe, $tel, $slack){
+        $em = $this->getDoctrine()->getManager();
+
+        //Check si email existe
+        $usersRepository = $em->getRepository("AppBundle:User");
+        if($usersRepository->findOneBy(array('email' => $mail))){
+            echo "L'adresse email est déja utilisée";
+            return false;
+        }
+
+        $user = new User();
+        $user->setUsername(substr($prenom,0,1).$nom);
+        $user->setEmail($mail);
+        $user->setEmailCanonical($mail);
+        $user->setEnabled(1);
+        $user->setPlainPassword($password);
+        $user->addRole($role);
+
+        $user->setNom($nom);
+        $user->setPrenom($prenom);
+        $user->setClasseOuFonction($classe);
+        $user->setTel($tel); 
+        $user->setNomSlack($slack);
+
+        $em->persist($user);
+        $em->flush();
+
+        return true;
+   }
 }

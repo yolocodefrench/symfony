@@ -5,16 +5,22 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Projet; 
 
 /**
- * @ORM\Entity
+ * Utilisateur
+ *
  * @ORM\Table(name="utilisateurs")
+ * @ORM\Entity
  */
 class User extends BaseUser
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
@@ -24,70 +30,65 @@ class User extends BaseUser
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)
      */
-    private $prenom;
+    protected $prenom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="classe_ou_fonction", type="string", length=255)
      */
-    private $classeOuFonction;
+    protected $classeOuFonction;
 
     /**
      * @var string
      *
      * @ORM\Column(name="role", type="string", length=255, nullable=true)
      */
-    private $role;
+    protected $role;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mail", type="string", length=255)
+     * Plusieurs users ont plusieurs groupes.
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Projet", mappedBy="projets")
+     * @ORM\JoinTable(name="users_projets")
      */
-    private $mail;
+    protected $projets;
 
+    public function __construct() {
+        parent::__construct();
+        $this->projets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    
     /**
      * @var int
      *
      * @ORM\Column(name="tel", type="integer")
      */
-    private $tel;
+    protected $tel;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom_slack", type="string", length=255, nullable=true)
      */
-    private $nomSlack;
+    protected $nomSlack;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="actif", type="boolean", nullable=true)
-     */
-    private $actif;
-
+    
     /**
      * @var int
      *
-     * @ORM\Column(name="id_statuts", type="integer")
+     * @ORM\Column(name="id_entreprise", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idStatuts;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_projets", type="integer")
-     */
-    private $idProjets;
+    protected $idEntreprise;
 
 
     /**
@@ -197,27 +198,27 @@ class User extends BaseUser
     }
 
     /**
-     * Set mail
+     * Set role
      *
-     * @param string $mail
+     * @param string $role
      *
      * @return Utilisateur
      */
-    public function setMail($mail)
+    public function setProjet($projet)
     {
-        $this->mail = $mail;
+        $this->projet[]= $projet;
 
         return $this;
     }
 
     /**
-     * Get mail
+     * Get role
      *
      * @return string
      */
-    public function getMail()
+    public function getProjet()
     {
-        return $this->mail;
+        return $this->projet;
     }
 
     /**
@@ -268,81 +269,29 @@ class User extends BaseUser
         return $this->nomSlack;
     }
 
+    
     /**
-     * Set actif
+     * Set idEntreprise
      *
-     * @param boolean $actif
+     * @param integer $idEntreprise
      *
      * @return Utilisateur
      */
-    public function setActif($actif)
+    public function setIdEntreprise($idEntreprise)
     {
-        $this->actif = $actif;
+        $this->idEntreprise = $idEntreprise;
 
         return $this;
     }
 
     /**
-     * Get actif
-     *
-     * @return bool
-     */
-    public function getActif()
-    {
-        return $this->actif;
-    }
-
-    /**
-     * Set idStatuts
-     *
-     * @param integer $idStatuts
-     *
-     * @return Utilisateur
-     */
-    public function setIdStatuts($idStatuts)
-    {
-        $this->idStatuts = $idStatuts;
-
-        return $this;
-    }
-
-    /**
-     * Get idStatuts
+     * Get idEntreprise
      *
      * @return int
      */
-    public function getIdStatuts()
+    public function getdEntreprise()
     {
-        return $this->idStatuts;
+        return $this->idEntreprise;
     }
 
-    /**
-     * Set idProjets
-     *
-     * @param integer $idProjets
-     *
-     * @return Utilisateur
-     */
-    public function setIdProjets($idProjets)
-    {
-        $this->idProjets = $idProjets;
-
-        return $this;
-    }
-
-    /**
-     * Get idProjets
-     *
-     * @return int
-     */
-    public function getIdProjets()
-    {
-        return $this->idProjets;
-    }
-
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
 }
