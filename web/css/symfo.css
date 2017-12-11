@@ -94,6 +94,7 @@
 
 #barre_gauche
 {
+    position: fixed;
     display: flex;
     flex-direction: column;
     width: 11%;
@@ -112,7 +113,7 @@
     display: flex;
     justify-content: center;
      align-items: center;
-    margin-top:161%;
+    margin-top:90%;
     
 }
 
@@ -121,7 +122,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:161%;
+    margin-top:90%;
     background-color: deeppink;
     
 }
