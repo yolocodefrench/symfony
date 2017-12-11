@@ -68,14 +68,6 @@ class Utilisateur
         $this->projets = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mail", type="string", length=255)
-     */
-    private $mail;
-
     /**
      * @var int
      *
@@ -232,54 +224,6 @@ class Utilisateur
     }
 
     /**
-     * Set projet
-     *
-     * @param integer $projet
-     *
-     * @return Utilisateur
-     */
-    public function setCdpProjet($projet)
-    {
-        $this->cdpProjet = $cdpProjet;
-
-        return $this;
-    }
-
-    /**
-     * Get projet
-     *
-     * @return int
-     */
-    public function getCdpProjet()
-    {
-        return $this->cdpProjet;
-    }
-
-    /**
-     * Set mail
-     *
-     * @param string $mail
-     *
-     * @return Utilisateur
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    /**
-     * Get mail
-     *
-     * @return string
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
-
-    /**
      * Set tel
      *
      * @param integer $tel
@@ -325,30 +269,6 @@ class Utilisateur
     public function getNomSlack()
     {
         return $this->nomSlack;
-    }
-
-    /**
-     * Set idProjets
-     *
-     * @param integer $idProjets
-     *
-     * @return Utilisateur
-     */
-    public function setIdProjets($idProjets)
-    {
-        $this->idProjets = $idProjets;
-
-        return $this;
-    }
-
-    /**
-     * Get idProjets
-     *
-     * @return int
-     */
-    public function getIdProjets()
-    {
-        return $this->idProjets;
     }
 
     /**
