@@ -53,18 +53,7 @@ class Utilisateur extends BaseUser
      */
     protected $role;
 
-    /**
-     * Plusieurs users ont plusieurs groupes.
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Projet", mappedBy="projets")
-     * @ORM\JoinTable(name="users_projets")
-     */
-    protected $projets;
-
-    public function __construct() {
-        parent::__construct();
-        $this->projets = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
+    
     
     /**
      * @var int
@@ -80,15 +69,13 @@ class Utilisateur extends BaseUser
      */
     protected $nomSlack;
 
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
     
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_entreprise", type="integer", nullable=true)
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    protected $idEntreprise;
+    
 
 
     /**
@@ -270,28 +257,6 @@ class Utilisateur extends BaseUser
     }
 
     
-    /**
-     * Set idEntreprise
-     *
-     * @param integer $idEntreprise
-     *
-     * @return Utilisateur
-     */
-    public function setIdEntreprise($idEntreprise)
-    {
-        $this->idEntreprise = $idEntreprise;
-
-        return $this;
-    }
-
-    /**
-     * Get idEntreprise
-     *
-     * @return int
-     */
-    public function getdEntreprise()
-    {
-        return $this->idEntreprise;
-    }
+   
 
 }
