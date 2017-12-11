@@ -161,7 +161,6 @@ class Projet
     {
         return $this->projetExtOuInt;
     }
-
     /**
      * Set ydaysPerso
      *
@@ -172,10 +171,8 @@ class Projet
     public function setYdaysPerso($ydaysPerso)
     {
         $this->ydaysPerso = $ydaysPerso;
-
         return $this;
     }
-
     /**
      * Get ydaysPerso
      *
@@ -185,7 +182,6 @@ class Projet
     {
         return $this->ydaysPerso;
     }
-
     /**
      * Set statusEvaluations
      *
@@ -196,10 +192,8 @@ class Projet
     public function setStatusEvaluations($statusEvaluations)
     {
         $this->statusEvaluations = $statusEvaluations;
-
         return $this;
     }
-
     /**
      * Get statusEvaluations
      *
@@ -209,7 +203,6 @@ class Projet
     {
         return $this->statusEvaluations;
     }
-
     /**
      * Set archiver
      *
@@ -220,10 +213,8 @@ class Projet
     public function setArchiver($archiver)
     {
         $this->archiver = $archiver;
-
         return $this;
     }
-
     /**
      * Get archiver
      *
@@ -233,31 +224,27 @@ class Projet
     {
         return $this->archiver;
     }
-
     /**
      * Set idUtilisateurs
      *
-     * @param integer $idUtilisateurs
+     * @param integer $chefDeProjet
      *
      * @return projet
      */
-    public function setIdUtilisateurs($idUtilisateurs)
+    public function setIChefDeProjet($chefDeProjet)
     {
-        $this->idUtilisateurs = $idUtilisateurs;
-
+        $this->chefDeProjet = $chefDeProjet;
         return $this;
     }
-
     /**
-     * Get idUtilisateurs
+     * Get chefDeProjet
      *
      * @return int
      */
-    public function getIdUtilisateurs()
+    public function getChefDeProjet()
     {
-        return $this->idUtilisateurs;
+        return $this->chefDeProjet;
     }
-
     /**
      * Set idUtilisateurs1
      *
@@ -265,13 +252,11 @@ class Projet
      *
      * @return projet
      */
-    public function setIdUtilisateurs1($idUtilisateurs1)
+    public function setHelper($helper)
     {
-        $this->idUtilisateurs1 = $idUtilisateurs1;
-
+        $this->helper = $helper;
         return $this;
     }
-
     /**
      * Get idUtilisateurs1
      *
@@ -281,7 +266,6 @@ class Projet
     {
         return $this->helper;
     }
-
     /**
      * Set idEntreprises
      *
@@ -292,10 +276,8 @@ class Projet
     public function setIdEntreprises($idEntreprises)
     {
         $this->idEntreprises = $idEntreprises;
-
         return $this;
     }
-
     /**
      * Get idEntreprises
      *
@@ -305,7 +287,6 @@ class Projet
     {
         return $this->idEntreprises;
     }
-
     /**
      * Set statusId
      *
@@ -316,10 +297,8 @@ class Projet
     public function setStatusId($statusId)
     {
         $this->statusId = $statusId;
-
         return $this;
     }
-
     /**
      * Get idEntreprises
      *
@@ -330,4 +309,3 @@ class Projet
         return $this->statusId;
     }
 }
-
