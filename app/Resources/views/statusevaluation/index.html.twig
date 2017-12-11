@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Statusevaluations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for statusEvaluation in statusEvaluations %}
+            <tr>
+                <td><a href="{{ path('statusevaluation_show', { 'id': statusEvaluation.id }) }}">{{ statusEvaluation.id }}</a></td>
+                <td>{{ statusEvaluation.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('statusevaluation_show', { 'id': statusEvaluation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('statusevaluation_edit', { 'id': statusEvaluation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('statusevaluation_new') }}">Create a new statusEvaluation</a>
+        </li>
+    </ul>
+{% endblock %}
