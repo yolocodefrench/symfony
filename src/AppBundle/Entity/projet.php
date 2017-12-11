@@ -25,93 +25,83 @@ class Projet
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * One projet has One Helper.
-     * 
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Salle", inversedBy="projets")
-     * @ORM\JoinColumn(name="projet_id", referencedColumnName="id")
-     *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CompteRendu", mappedBy="idProjet")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="projet_ext_ou_int", type="boolean")
      */
-    private $projetExtOuInt;
+    protected $projetExtOuInt;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="ydays_perso", type="boolean")
      */
-    private $ydaysPerso;
+    protected $ydaysPerso;
 
     /**
      * Plusieurs groupes ont plusieurs users.
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="utilisateurs")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", inversedBy="projets")
      * @ORM\JoinTable(name="users_projets")
      */
-    private $utilisateurs;
+    protected $utilisateurs;
 
     public function __construct() {
         $this->utilisateur = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="status_evaluations", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\StatusEvaluation", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $statusEvaluations;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="archiver", type="boolean")
      */
-    private $archiver;
+    protected $archiver;
 
     /**
      * @var int
      * 
-     * One projet a un Chef de projet.
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="id")
-     * @ORM\JoinColumn(name="fk_chef_de_projet", referencedColumnName="id")
+     * @ORM\Column(name="id_utilisateur", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $chefDeProjet;
-
-    /**
-     *@var int
-     * One projet a un helper.
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="id")
-     * @ORM\JoinColumn(name="fk_helper", referencedColumnName="id")
-     */
-    private $helper;
+    protected $idUtilisateurs;
 
     /**
      * @var int
      *
-     * One projet a une entreprise.
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", inversedBy="id")
-     * @ORM\JoinColumn(name="fk_entreprise", referencedColumnName="id")
+     * @ORM\Column(name="id_utilisateur1", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $idEntreprises;
+    protected $idUtilisateurs1;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StatusEvaluation", inversedBy="projets")
-     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
-    */
-    private $statusId;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Salle", inversedBy="projets")
-     * @ORM\JoinColumn(name="fk_salle", referencedColumnName="id")
-    */
-    private $idSalle;
+     * @var int
+     *
+     * @ORM\Column(name="id_entreprise", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $idEntreprises;
 
 
     /**
@@ -247,25 +237,25 @@ class Projet
     /**
      * Set idUtilisateurs
      *
-     * @param integer $chefDeProjet
+     * @param integer $idUtilisateurs
      *
      * @return projet
      */
-    public function setIChefDeProjet($chefDeProjet)
+    public function setIdUtilisateurs($idUtilisateurs)
     {
-        $this->chefDeProjet = $chefDeProjet;
+        $this->idUtilisateurs = $idUtilisateurs;
 
         return $this;
     }
 
     /**
-     * Get chefDeProjet
+     * Get idUtilisateurs
      *
      * @return int
      */
-    public function getChefDeProjet()
+    public function getIdUtilisateurs()
     {
-        return $this->chefDeProjet;
+        return $this->idUtilisateurs;
     }
 
     /**
@@ -275,9 +265,9 @@ class Projet
      *
      * @return projet
      */
-    public function setHelper($helper)
+    public function setIdUtilisateurs1($idUtilisateurs1)
     {
-        $this->helper = $helper;
+        $this->idUtilisateurs1 = $idUtilisateurs1;
 
         return $this;
     }
