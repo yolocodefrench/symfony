@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Projet;
 
 /**
  * StatusEvaluation
@@ -27,6 +29,19 @@ class StatusEvaluation
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+
+    /**
+     * One status has Many projet.
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Projet", mappedBy="status")
+     */
+    private $projets;
+    // ...
+
+    public function __construct() {
+        $this->projets = new ArrayCollection();
+    }
+
+
 
 
     /**

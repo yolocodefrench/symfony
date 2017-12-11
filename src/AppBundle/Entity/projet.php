@@ -25,6 +25,8 @@ class Projet
      * @ORM\GeneratedValue(strategy="AUTO")
      * One projet has One Helper.
      * 
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StatusEvaluation", inversedBy="projets")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $id;
 
@@ -60,14 +62,6 @@ class Projet
         $this->utilisateur = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * 
-     *
-     * Many projets have One status.
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StatusEvaluation", inversedBy="projets")
-     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
-     */
-    private $status;
 
     /**
      * @var bool

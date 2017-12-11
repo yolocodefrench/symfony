@@ -90,35 +90,13 @@ class Utilisateur
      */
     private $nomSlack;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="actif", type="boolean", nullable=true)
-     */
-    private $actif;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="id_statuts", type="integer")
-     */
-    private $idStatuts;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_projets", type="integer")
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Projet")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $idProjets;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_entreprise", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * One projet a un Chef de projet.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", inversedBy="id")
+     * @ORM\JoinColumn(name="fk_entreprise", referencedColumnName="id")
      */
     private $idEntreprise;
 
@@ -347,54 +325,6 @@ class Utilisateur
     public function getNomSlack()
     {
         return $this->nomSlack;
-    }
-
-    /**
-     * Set actif
-     *
-     * @param boolean $actif
-     *
-     * @return Utilisateur
-     */
-    public function setActif($actif)
-    {
-        $this->actif = $actif;
-
-        return $this;
-    }
-
-    /**
-     * Get actif
-     *
-     * @return bool
-     */
-    public function getActif()
-    {
-        return $this->actif;
-    }
-
-    /**
-     * Set idStatuts
-     *
-     * @param integer $idStatuts
-     *
-     * @return Utilisateur
-     */
-    public function setIdStatuts($idStatuts)
-    {
-        $this->idStatuts = $idStatuts;
-
-        return $this;
-    }
-
-    /**
-     * Get idStatuts
-     *
-     * @return int
-     */
-    public function getIdStatuts()
-    {
-        return $this->idStatuts;
     }
 
     /**
