@@ -3,6 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Utilisateur;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\StatusEvaluation;
+use AppBundle\Entity\Entreprise;
+
 
 /**
  * projet
@@ -18,6 +23,8 @@ class Projet
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * One projet has One Helper.
+     * 
      */
     private $id;
 
@@ -43,13 +50,24 @@ class Projet
     private $ydaysPerso;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="status_evaluations", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\StatusEvaluation", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * Plusieurs groupes ont plusieurs users.
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="utilisateurs")
+     * @ORM\JoinTable(name="users_projets")
      */
-    private $statusEvaluations;
+    private $utilisateurs;
+
+    public function __construct() {
+        $this->utilisateur = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * 
+     *
+     * Many projets have One status.
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StatusEvaluation", inversedBy="projets")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+     */
+    private $status;
 
     /**
      * @var bool
@@ -61,27 +79,26 @@ class Projet
     /**
      * @var int
      * 
-     * @ORM\Column(name="id_utilisateur", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * One projet a un Chef de projet.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="id")
+     * @ORM\JoinColumn(name="fk_chef_de_projet", referencedColumnName="id")
      */
-    private $idUtilisateurs;
+    private $chefDeProjet;
+
+    /**
+     *@var int
+     * One projet a un helper.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="id")
+     * @ORM\JoinColumn(name="fk_helper", referencedColumnName="id")
+     */
+    private $helper;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="id_utilisateur1", type="integer")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $idUtilisateurs1;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_entreprise", type="integer", nullable=true)
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * One projet a une entreprise.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Entreprise", inversedBy="id")
+     * @ORM\JoinColumn(name="fk_entreprise", referencedColumnName="id")
      */
     private $idEntreprises;
 
@@ -219,25 +236,25 @@ class Projet
     /**
      * Set idUtilisateurs
      *
-     * @param integer $idUtilisateurs
+     * @param integer $chefDeProjet
      *
      * @return projet
      */
-    public function setIdUtilisateurs($idUtilisateurs)
+    public function setIChefDeProjet($chefDeProjet)
     {
-        $this->idUtilisateurs = $idUtilisateurs;
+        $this->chefDeProjet = $chefDeProjet;
 
         return $this;
     }
 
     /**
-     * Get idUtilisateurs
+     * Get chefDeProjet
      *
      * @return int
      */
-    public function getIdUtilisateurs()
+    public function getChefDeProjet()
     {
-        return $this->idUtilisateurs;
+        return $this->chefDeProjet;
     }
 
     /**
@@ -247,9 +264,9 @@ class Projet
      *
      * @return projet
      */
-    public function setIdUtilisateurs1($idUtilisateurs1)
+    public function setHelper($helper)
     {
-        $this->idUtilisateurs1 = $idUtilisateurs1;
+        $this->helper = $helper;
 
         return $this;
     }
@@ -259,9 +276,9 @@ class Projet
      *
      * @return int
      */
-    public function getIdUtilisateurs1()
+    public function gethelper()
     {
-        return $this->idUtilisateurs1;
+        return $this->helper;
     }
 
     /**
