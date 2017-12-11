@@ -1,5 +1,10 @@
 
  /* //////////////////// LOGIN  */
+
+*{
+    font-family: 'Lato', sans-serif;
+}
+
 #body_acceuil
 {
     display: flex;
@@ -99,8 +104,13 @@
     flex-direction: column;
     width: 11%;
     font-size: 100%;
-    background-color: dimgrey;
+    background-color: #666666 ;
     color: whitesmoke;
+}
+
+#barre_gauche_bienvenue
+{
+   font-weight: bold;
 }
 
 #barre_gauche_centre
@@ -123,7 +133,7 @@
     justify-content: center;
     align-items: center;
     margin-top:161%;
-    background-color: deeppink;
+    background-color: #EC4363;
     
 }
 
@@ -148,7 +158,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: deeppink;
+    background-color: #EC4363 ;
+    opacity: 80%;
 }
 
 #barre_gauche_haut
@@ -164,6 +175,7 @@
 }
 
 /* //////////////// header */
+
 
 #body_header
 {
@@ -198,19 +210,25 @@
 
 #droite_header
 {
-
+     width: 200px;
 }
 
-#nom_page
+.nom_page
 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 150%;
-    color: deeppink;
+    color: #EC4363 ;
 }
 
 #chemin
 {
     color: aqua;
     margin-left: 5%;
+}
+
+#image_ynov
+{
+    width: 20px;
 }
 
 /*///////////// les pages */
@@ -234,9 +252,9 @@
     height: 300px;
     width: 600px;
     border-style: solid;
-    border-color: gray;
-    border-top-left-radius: 9%;
-    border-bottom-right-radius: 9%;
+    border-color: #95989A ;
+    border-top-left-radius: 9px;
+    border-bottom-right-radius: 9px;
     margin-top: 2%;
     margin-left: 30%;
 }
@@ -262,5 +280,5 @@
 #ecran_accueil_haut
 {
     border-bottom: solid;
-     border-color: gray;
+     border-color: #95989A;
 }
