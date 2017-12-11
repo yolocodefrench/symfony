@@ -113,7 +113,7 @@
     display: flex;
     justify-content: center;
      align-items: center;
-    margin-top:90%;
+    margin-top:161%;
     
 }
 
@@ -122,7 +122,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:90%;
+    margin-top:161%;
     background-color: deeppink;
     
 }
@@ -218,5 +218,49 @@
 #page_carre
 {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row;
+}
+
+#page_droite
+{
+    margin-left: 12%;
+    width: 100%;
+}
+
+/* ////////////// carre */
+
+#ecran_accueil
+{
+    height: 300px;
+    width: 600px;
+    border-style: solid;
+    border-color: gray;
+    border-top-left-radius: 9%;
+    border-bottom-right-radius: 9%;
+    margin-top: 2%;
+    margin-left: 30%;
+}
+
+
+
+#titre_bienvenue
+{
+    padding-left: 5%;
+    font-size: 180%;
+    color: deeppink;
+}
+
+#texte_bienvenue
+{
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 90%;
+}
+
+
+
+#ecran_accueil_haut
+{
+    border-bottom: solid;
+     border-color: gray;
 }
