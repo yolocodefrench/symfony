@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Projet;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Salle
@@ -38,7 +39,7 @@ class Salle
 
     /**
      * One Salle has Many projets.
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Projet", mappedBy="id")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Projet", mappedBy="idSalle")
      */
     private $projets;
 

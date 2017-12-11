@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Projet;
+use AppBundle\Entity\Utilisateur;
 /**
  * Entreprise
  *
@@ -19,8 +20,12 @@ class Entreprise
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
-     * One projet has One chefDeProjet.
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", mappedBy="idEntreprises")
+     * One entreprise has One utilisateur.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", mappedBy="idEntreprise")
+     *
+     * One entreprise has One projet.
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", inversedBy="idEntreprise")
+     *
      */
     private $id;
 

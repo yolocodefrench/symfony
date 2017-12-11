@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compterendus list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Chemin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compteRendu in compteRendus %}
+            <tr>
+                <td><a href="{{ path('compterendu_show', { 'id': compteRendu.id }) }}">{{ compteRendu.id }}</a></td>
+                <td>{{ compteRendu.chemin }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('compterendu_show', { 'id': compteRendu.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('compterendu_edit', { 'id': compteRendu.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compterendu_new') }}">Create a new compteRendu</a>
+        </li>
+    </ul>
+{% endblock %}
