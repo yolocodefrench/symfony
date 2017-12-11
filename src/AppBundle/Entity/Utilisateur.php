@@ -14,7 +14,7 @@ use AppBundle\Entity\Projet;
  * @ORM\Table(name="utilisateurs")
  * @ORM\Entity
  */
-class User extends BaseUser
+class Utilisateur extends BaseUser
 {
     /**
      * @var int
