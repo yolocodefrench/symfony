@@ -291,3 +291,138 @@
      border-color: #95989A;
       border-width: 1px;
 }
+
+/* ////////////// alerte */
+
+#alerte
+{
+    height: 350px;
+    width: 600px;
+    background-color: whitesmoke;
+    opacity: 80%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #95989A;
+    border-top-left-radius: 9%;
+    border-bottom-right-radius: 9%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#alerte_bas
+{
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+ #alerte_haut
+{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#gros_titre_alerte
+{
+    font-size: 30px;
+    color: greenyellow;
+    font-weight: bold;
+    
+}
+
+#moyen_titre_alerte
+{
+    font-size: 20px;
+    color: green;
+}
+
+#petit_titre_alerte
+{
+    font-size: 15px;
+     color: green;
+}
+
+#ok_alerte
+{
+    border: none;
+    background-color: white;
+    color: greenyellow;
+    font-size: 14px;
+}
+
+#annuler_alerte
+{
+     
+   
+    background-color: white;
+    border: none;
+    color: #95989A;
+    font-size: 15px;
+}
+
+#alerte_enregistrer
+{
+    height: 25px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: orangered;
+    border-width: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#annuler
+{
+    height: 25px;
+    width: 200px;
+     padding: 10px;
+    border-radius: 10px;
+    border-color: aqua;
+    border-width: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.svg_alerte
+{
+    height: 20px;
+    width: 20px;
+    padding-right: 10px;
+}
+
+#gros_titre_alerte2
+{
+    font-size: 30px;
+    color: #EC4363;
+    font-weight: bold;
+    
+}
+
+#moyen_titre_alerte2
+{
+    font-size: 20px;
+    color: #AD0A2A;
+}
+
+#petit_titre_alerte2
+{
+    padding: 10px;
+    font-size: 15px;
+     color: #AD0A2A;
+}
+
+#supprimer_alerte
+{
+  color:  #EC4363;
+}

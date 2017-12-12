@@ -67,6 +67,21 @@ class DefaultController extends Controller
         return $this->render('default/acceuil.html.twig',[]);
     }
 
+    /**
+     * @Route("/accepter", name="test5")
+     */
+    public function nouvelleAction6(){
+        return $this->render('default/alerteaccepter.html.twig',[]);
+    }
+
+    /**
+     * @Route("/delete", name="test6")
+     */
+    public function nouvelleAction7(){
+        return $this->render('default/alertedelete.hmtl.twig',[]);
+    }
+
+
 
 
 }
