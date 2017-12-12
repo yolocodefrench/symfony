@@ -1,15 +1,28 @@
+/* //////////////////// LOGIN  */
 
-body
+*{
+    font-family: 'Lato', sans-serif;
+}
+
+#body_acceuil
 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+     margin: 0px;
+
+    padding: 0px;
+    outline: 0px;
+    height: 100%;
     
 }
 
 #boite_central
 {
+    display: flex;
     margin-top: 10%;
+    
     
     
 }
@@ -17,33 +30,40 @@ body
 #email
 {
     height: 25%;
-	width: 100%;
-	font-size: 100%;
-	border: none;
-	border: 1px solid darkgrey ;
+    width: 100%;
+    font-size: 100%;
+    border: none;
+    border: 1px solid darkgrey ;
     border-radius: 8%;
-	font-family: Verdana;
-    
+    font-family: Verdana;
+    padding-left: 5%;
 }
 
 #mdp
 {
     height: 25%;
-	width: 100%;
-	font-size: 100%;
-	border: none;
-	border: 1px solid darkgrey ;
+    width: 100%;
+    font-size: 100%;
+    border: none;
+    border: 1px solid darkgrey ;
     border-radius: 8%;
-	font-family: Verdana;
+    font-family: Verdana;
+    padding-left: 5%;
 }
 
 #boite_droite
 {
     height: 20vh;
     width: 20vw;
+    padding-left: 2%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+#boite_gauche
+{
+   border-right: 1px solid darkgrey ;
 }
 
 #connexion
@@ -54,9 +74,210 @@ body
     width: 10vw;
     height: 4vh;
     border: none;
-	border: 1px solid darkgrey ;
+    border: 1px solid darkgrey ;
     border-radius: 10%;
     background-color: cadetblue;
     font-family: Verdana;
     color: floralwhite;
+}
+
+
+/* ////////////////// barre gauche   */
+
+#body_barre_gauche
+{
+    margin: 0px;
+
+   padding: 0px;
+
+   outline: 0px;
+
+   height: 100%;
+    
+}
+
+#barre_gauche
+{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 11%;
+    font-size: 100%;
+    background-color: #666666 ;
+    color: whitesmoke;
+}
+
+#barre_gauche_bienvenue
+{
+   font-weight: bold;
+}
+
+#barre_gauche_centre
+{
+ margin-top: 50%;
+}
+
+#barre_gauche_bas
+{
+    display: flex;
+    justify-content: center;
+     align-items: center;
+    margin-top:161%;
+    
+}
+
+#barre_gauche_bas:hover
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:161%;
+    background-color: #EC4363;
+    
+}
+
+.barre_gauche_svg
+{
+    width: 10%;
+    height: 10%;
+    padding-right: 5%;
+}
+
+.barre_gauche_centre_menu_cliquable
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.barre_gauche_centre_menu_cliquable:hover
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #EC4363 ;
+    opacity: 80%;
+}
+
+#barre_gauche_haut
+{
+    display: flex;
+    justify-content: center;
+}
+ .lien
+{
+    text-decoration: none;
+    color: white;
+   
+}
+
+/* //////////////// header */
+
+
+#body_header
+{
+      margin: 0px;
+
+   padding: 0px;
+
+   outline: 0px;
+
+   height: 100%;
+}
+
+#header
+{ 
+    border-bottom: 1px solid darkgrey ;
+    display: flex;
+    flex-direction: row;
+    height: ;
+    flex-shrink: 1;
+}
+
+#centre_header
+{
+    width: 70%
+}
+
+#gauche_header
+{
+    width: 40%;
+    height: 100%;
+}
+
+#droite_header
+{
+     width: 200px;
+}
+
+.nom_page
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 150%;
+    color: #EC4363 ;
+}
+
+#chemin
+{
+    color: aqua;
+    margin-left: 5%;
+}
+
+#image_ynov
+{
+    width: 20px;
+}
+
+/*///////////// les pages */
+
+#page_carre
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#page_droite
+{
+    margin-left: 12%;
+    width: 100%;
+}
+
+/* ////////////// carre */
+
+#ecran_accueil
+{
+    height: 300px;
+    width: 600px;
+    border-style: solid;
+    border-color: #95989A ;
+    border-top-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    margin-top: 2%;
+    margin-left: 30%;
+}
+
+
+
+#titre_bienvenue
+{
+    padding-left: 5%;
+    font-size: 180%;
+    color: deeppink;
+}
+
+#texte_bienvenue
+{
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 90%;
+}
+
+
+
+#ecran_accueil_haut
+{
+    border-bottom: solid;
+     border-color: #95989A;
 }
