@@ -14,7 +14,8 @@ class UtilisateurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('classeOuFonction')->add('role')->add('tel')->add('nomSlack')->add('projets')->add('idEntreprise')
+        $builder->add('nom')->add('prenom')->add('classeOuFonction')->add('role')->add('tel')->add('nomSlack')
+            ->add('projets')->add('idEntreprise')
             ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(

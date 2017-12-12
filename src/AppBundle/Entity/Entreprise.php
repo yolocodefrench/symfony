@@ -256,5 +256,10 @@ class Entreprise
     {
         return $this->siret;
     }
+
+    public function __toString()
+    {
+        return $this->getNom();
+    }
 }
 
