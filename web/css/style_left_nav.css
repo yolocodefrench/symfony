@@ -1,0 +1,137 @@
+#site_workspace {
+    left: 250px;
+    width: calc(100% - 250px);
+    position: absolute;
+    top: 0;
+}
+
+#workspace {
+    padding: 20px;
+}
+#workspace, #workspace a {
+    color: black!important;
+}
+
+
+#site_navbar {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Lato', sans-serif;
+    color: #FFFFFF;
+    font-size: 1em;
+
+}
+#site_navbar a {
+    color: #FFFFFF;
+}
+
+#site_navbar #left_conteneur {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 100vh;
+    background-color: #666666;
+    min-height: 490px;
+}
+
+#site_navbar #username {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#site_navbar #username p {
+    text-align: center;
+}
+
+#site_navbar #username span {
+    font-style: italic;
+}
+
+#site_navbar #navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+#site_navbar .buttons {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#site_navbar .buttons img {
+    width: 32px;
+    height: 32px;
+    margin-left: 32px;
+}
+
+#site_navbar .id_btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* Bounce To Right Animation*/
+
+#site_navbar .hvr-bounce-to-right {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+#site_navbar .hvr-bounce-to-right:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #D4556D;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+#site_navbar .hvr-bounce-to-right:hover,
+#site_navbar .hvr-bounce-to-right:focus,
+#site_navbar .hvr-bounce-to-right:active {
+    color: white;
+}
+
+#site_navbar .hvr-bounce-to-right:hover:before,
+#site_navbar .hvr-bounce-to-right:focus:before,
+#site_navbar .hvr-bounce-to-right:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+#site_navbar #empty {
+    height: 250px;
+}
+
+#site_navbar #logout {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

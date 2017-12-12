@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style_left_nav.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<body>
+    <div id="left_conteneur">
+        <div id="username">
+            <p>Bienvenue <span>@user</span> !</p>
+        </div>
+        <div id="navbar">
+            <a href="#">
+                <div class="hvr-bounce-to-right">
+                    <div class="buttons" id="home">
+                        <img src="{{ asset('image/icon_home.png') }}">
+                        <div class="id_btn">
+                            <p>Menu principal</p>
+                        </div>
+                    </div>
+                </div>
+            </a><!-- -->
+            <a href="#">
+                <div class="hvr-bounce-to-right">
+                    <div class="buttons" id="projects">
+                        <img src="{{ asset('image/icon_folder.png') }}">
+                        <div class="id_btn">
+                            <p>Projets</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="hvr-bounce-to-right">
+                    <div class="buttons" id="users">
+                        <img src="{{ asset('image/icon_profile.png') }}">
+                        <div class="id_btn">
+                            <p>Utilisateurs</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="hvr-bounce-to-right">
+                    <div class="buttons" id="messaging">
+                        <img src="{{ asset('image/icon_edit.png') }}">
+                        <div class="id_btn">
+                            <p>Messagerie</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="hvr-bounce-to-right">
+                    <div class="buttons" id="entreprises">
+                        <img src="{{ asset('image/icon_briefcase.png') }}">
+                        <div class="id_btn">
+                            <p>Entreprises</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="hvr-bounce-to-right">
+                    <div class="buttons" id="logs">
+                        <img src="{{ asset('image/icon_padnote.png') }}">
+                        <div class="id_btn">
+                            <p>Logs</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="empty">
+        </div>
+        <a href="#">
+            <div class="hvr-bounce-to-right">
+                <div id="logout">
+                    <div class="buttons" id="log">
+                        <img src="{{ asset('image/icon_logout.png') }}">
+                        <div class="id_btn">
+                            <p>Se déconnecter</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+/*Classe contentant le contenu de la page*/
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+#controllers {
+    width: 1121px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#controllers img {
+    width: 32px;
+    height: 32px;
+}
+
+#bt_add {
+    margin-right: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#contents {
+    display: flex;
+    flex-flow: row wrap;
+    width: 1121px;
+    height: 701px;
+    align-content: flex-start;
+}
+
+/*Paramètres des tuiles*/
+
+.tile {
+    width: 367px;
+    height: 227px;
+    margin: 3px;
+    color: aliceblue;
+
+
+}
+
+.tile_icon {
+    width: 64px;
+    height: 64px;
+}
+
+.tile_icon img {
+    width: 64px;
+    height: 64px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.tile_top {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.tile_infos p {
+    text-align: right;
+    margin: 0;
+}
+
+.tile_infos #ligne {
+    height: 1px;
+    width: 75px;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tile_title {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+
+#tile1 {
+    background-color: #33E1CF;
+}
+
+#tile2 {
+    background-color: #EC4363;
+}
+
+#tile3 {
+    background-color: #00AE9C;
+}
+
+#tile4 {
+    background-color: #FF90B0;
+}

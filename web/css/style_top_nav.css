@@ -1,0 +1,44 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+#site_header {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: inherit;
+    color: #EC4363;
+    font-size: 1.2em;
+
+}
+
+#site_header #top_conteneur {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 18vh;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #95989A;
+}
+
+#site_header #location {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-left: 50px;
+}
+
+#site_header #arborescence h2 {
+    margin-left: 50px;
+    font-size: 0.9em;
+    font-weight: lighter;
+    color: #00AE9C;
+}
+
+#site_header #logo img {
+    width: 260px;
+    margin-right: 50px;
+}
