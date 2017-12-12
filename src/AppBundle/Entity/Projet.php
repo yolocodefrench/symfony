@@ -7,6 +7,7 @@ use AppBundle\Entity\StatusEvaluation;
 use AppBundle\Entity\Entreprise;
 use AppBundle\Entity\Salle;
 use AppBundle\Entity\CompteRendu;
+use AppBundle\Entity\Commentaire;
 /**
  * projet
  *
@@ -51,6 +52,8 @@ class Projet
     private $utilisateurs;
     public function __construct() {
         $this->utilisateur = new \Doctrine\Common\Collections\ArrayCollection();
+
+           $this->commentaires = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * @var bool
@@ -92,6 +95,42 @@ class Projet
      * @ORM\JoinColumn(name="fk_salle", referencedColumnName="id")
     */
     private $idSalle;
+    /**
+    * One projet has Many commentaires.
+    * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="id")
+    */
+    private $commentaires;   
+
+      
+       /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return projet
+     */
+    public function setCommentaires($commentaires)
+    {
+        $this->commentaires = $commentaires;
+        return $this;
+    }
+
+
+
+
+
+
+
+
     /**
      * Get id
      *
@@ -334,5 +373,9 @@ class Projet
     public function getIdSalle()
     {
         return $this->idSalle;
+    }
+    public function __toString()
+    {
+        return $this->getNom();
     }
 }

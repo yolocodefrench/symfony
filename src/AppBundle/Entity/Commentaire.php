@@ -53,7 +53,7 @@ class Commentaire
      * @var int
      *
      * One projet a une entreprise.
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Projet", inversedBy="idProjet")
      * @ORM\JoinColumn(name="fk_projet", referencedColumnName="id")
      */
     private $idProjet;
