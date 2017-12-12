@@ -26,43 +26,6 @@ class DefaultController extends Controller
         ]);
     }
     /**
-     * @Route("/multiplication/", name="multiplication")
-     */
-    public function multiplication() {
-        /*return $this->render('default/number.html.twig', [
-            'numberA' => $numberA,
-            'numberB' => $numberB
-        ]);
-        */
-        $user = $this->getDoctrine()
-        ->getRepository('AppBundle:Projet')
-        ->findProjetArray();
-        if (!$user) {
-            throw $this->createNotFoundException(
-                'No product found for id 1'
-            );
-        }
-        return $this->render('default/test.html.twig',[
-            'product' => $user
-        ]);
-    }
-    /**
-     * @Route("/tentation/{essai}", name="test")
-     */
-    public function testAction(){
-        $projets = $this->getDoctrine()
-        ->getRepository('AppBundle:Projet')
-        ->findProjetArray();
-        if (!$projets) {
-            throw $this->createNotFoundException(
-                'No product found for id 1'
-            );
-        }
-        return $this->render('default/test.html.twig',[
-            'product' => $projets 
-        ]);
-    }
-    /**
      * @Route("/addUser", name="test")
      */
     public function formAction(Request $request){
@@ -92,5 +55,39 @@ class DefaultController extends Controller
           'form' => $form->createView(),
         ));
     }
-    
+
+
+    /**
+     * @Route("/login", name="test1")
+     */
+    public function nouvelleAction2(){
+        return $this->render('default/login.html.twig',[]);
+    }
+
+
+
+    /**
+     * @Route("/acceuil", name="test4")
+     */
+    public function nouvelleAction5(){
+        return $this->render('default/acceuil.html.twig',[]);
+    }
+
+    /**
+     * @Route("/accepter", name="test5")
+     */
+    public function nouvelleAction6(){
+        return $this->render('default/alerteaccepter.html.twig',[]);
+    }
+
+    /**
+     * @Route("/delete", name="test6")
+     */
+    public function nouvelleAction7(){
+        return $this->render('default/alertedelete.hmtl.twig',[]);
+    }
+
+
+
+
 }

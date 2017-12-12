@@ -1,0 +1,36 @@
+
+
+
+
+{% block test %}
+    <!DOCTYPE html>
+<html>
+    <title> accueil </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/symfo.css" >
+    </head>
+
+  <body>
+      <div id="page_carre">
+      <div id="page_gauche">
+            {% include "barre_gauche.html.twig" %}
+      </div>
+      <div id="page_droite">
+            {% include "header.html.twig" %}
+             <div id="ecran_accueil"> 
+            <div id="ecran_accueil_haut">
+                <p id="titre_bienvenue"> Bienvenue !</p>
+            </div>
+            <div id="ecran_accueil_bas">
+                <p id="texte_bienvenue"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit mauris a eros ultricies, vel tempus odio feugiat. Donec luctus justo nibh, in mollis ante lobortis sit amet. Maecenas nulla metus, tristique quis ex tincidunt, vestibulum vulputate lectus. Vestibulum et maximus purus. Nunc faucibus magna et risus facilisis, vel egestas sem efficitur. Integer at pharetra mauris. Nam eu dolor facilisis, aliquet elit a, congue lectus. Sed lacus leo, tempus non tempor nec, sagittis nec tellus. Aenean lacinia convallis nisi nec pretium. Nullam ut gravida ante.
+
+Sed ut nisl non lectus gravida vehicula eget ac elit. Nam pulvinar placerat ante, id pulvinar ligula mattis non. Etiam enim erat, laoreet at metus a, condimentum ultricies orci. Nam vehicula eu arcu at auctor. Nullam tincidunt, lectus id pharetra semper, ante dolor placerat nunc, vitae dapibus est diam sed lectus. Vestibulum nec tincidunt odio. 
+
+.</p>
+            </div>
+        </div>
+      </div>
+      </div> 
+  </body>
+
+</html>{% endblock %}

@@ -1,0 +1,41 @@
+{% block test %}
+    <!DOCTYPE html>
+<html>
+    <title> accepter </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/symfo.css" >
+    </head>
+    <body>  
+    <div id="alerte">
+        <div id="alerte_haut">
+             <p id="gros_titre_alerte">Confirmations de modifications </p>
+             <p id="moyen_titre_alerte">Voulez-vous confirmer les modifications apportées a ce projet ?</p> 
+             <p id="petit_titre_alerte"> cette action écrasera les précédentes données.</p> 
+        </div>
+        <div id="alerte_bas">
+            <div id="alerte_enregistrer">
+                <svg class="svg_alerte" viewBox="0 0 510 510" style="enable-background:new 0 0 510 510;" xml:space="preserve">
+<g>
+    <g id="check-circle-outline">
+        <path d="M150.45,206.55l-35.7,35.7L229.5,357l255-255l-35.7-35.7L229.5,285.6L150.45,206.55z M459,255c0,112.2-91.8,204-204,204    S51,367.2,51,255S142.8,51,255,51c20.4,0,38.25,2.55,56.1,7.65l40.801-40.8C321.3,7.65,288.15,0,255,0C114.75,0,0,114.75,0,255    s114.75,255,255,255s255-114.75,255-255H459z" fill="#91DC5A"/>
+    
+</svg>
+
+            <p id="ok_alerte">  les modifications
+            </p>
+            </div>
+                <div id="annuler">
+                    <svg class="svg_alerte"  viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+  <g>
+    <g>
+      <path d="m64.5,122.6c32,0 58.1-26 58.1-58.1s-26-58-58.1-58-58,26-58,58 26,58.1 58,58.1zm0-108c27.5,5.32907e-15 49.9,22.4 49.9,49.9s-22.4,49.9-49.9,49.9-49.9-22.4-49.9-49.9 22.4-49.9 49.9-49.9z"/>
+      <path d="m70,93.5c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2 1.6-1.6 1.6-4.2 0-5.8l-23.5-23.5 23.5-23.5c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8,0l-26.4,26.4c-0.8,0.8-1.2,1.8-1.2,2.9s0.4,2.1 1.2,2.9l26.4,26.4z"/>
+    </g>
+  </g>
+</svg>
+                <input id="annuler_alerte" type="button" value="Annuler">    
+                </div>
+        </div> 
+    </div>
+</body>
+</html>{% endblock %}
