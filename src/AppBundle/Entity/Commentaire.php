@@ -172,9 +172,9 @@ class Commentaire
      *
      * @return idProjet
      */
-    public function setIdProjet($projet)
+    public function setIdProjet($idProjet)
     {
-        $this->projet = $projet;
+        $this->idProjet = $idProjet;
 
         return $this;
     }
@@ -186,7 +186,7 @@ class Commentaire
      */
     public function getIdProjet()
     {
-        return $this->projet;
+        return $this->idProjet;
     }
 }
 
