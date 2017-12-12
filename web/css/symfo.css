@@ -141,7 +141,7 @@
 {
     width: 10%;
     height: 10%;
-    padding-right: 5%;
+    padding-right: 10%;
 }
 
 .barre_gauche_centre_menu_cliquable
@@ -149,7 +149,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 8px;
 }
 
 .barre_gauche_centre_menu_cliquable:hover
@@ -195,6 +196,7 @@
     flex-direction: row;
     height: ;
     flex-shrink: 1;
+    margin-left: -17px;
 }
 
 #centre_header
@@ -210,7 +212,8 @@
 
 #droite_header
 {
-     width: 200px;
+     display: flex;
+    align-self: center;
 }
 
 .nom_page
@@ -218,6 +221,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 150%;
     color: #EC4363 ;
+    padding-left: 10px;
 }
 
 #chemin
@@ -226,9 +230,11 @@
     margin-left: 5%;
 }
 
-#image_ynov
+#image_header
 {
-    width: 20px;
+    width: 120px;
+    height: 70px;
+    padding-right: 5px;
 }
 
 /*///////////// les pages */
@@ -252,11 +258,13 @@
     height: 300px;
     width: 600px;
     border-style: solid;
+    border-width: 1px;
     border-color: #95989A ;
     border-top-left-radius: 9px;
     border-bottom-right-radius: 9px;
     margin-top: 2%;
     margin-left: 30%;
+    box-shadow: 5px 5px 1px #95989A ;
 }
 
 
@@ -265,7 +273,7 @@
 {
     padding-left: 5%;
     font-size: 180%;
-    color: deeppink;
+    color: #EC4363;
 }
 
 #texte_bienvenue
@@ -281,4 +289,5 @@
 {
     border-bottom: solid;
      border-color: #95989A;
+      border-width: 1px;
 }
