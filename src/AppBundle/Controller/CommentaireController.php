@@ -22,6 +22,7 @@ class CommentaireController extends Controller
      */
     public function indexAction()
     {
+        $this->denyAccessUnlessGranted("ROLE_USER");
         $em = $this->getDoctrine()->getManager();
 
         $commentaires = $em->getRepository('AppBundle:Commentaire')->findAll();

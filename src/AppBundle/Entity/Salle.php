@@ -105,5 +105,9 @@ class Salle
     {
         return $this->etage;
     }
+
+    public function __toString(){
+        return $this->getNom();
+    }
 }
 

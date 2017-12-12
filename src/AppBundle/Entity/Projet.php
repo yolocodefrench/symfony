@@ -25,7 +25,7 @@ class Projet
      *
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\CompteRendu", mappedBy="idProjet")
      */
-    private $id;
+    private $id_projet;
     /**
      * @var string
      *
@@ -265,6 +265,15 @@ class Projet
     public function getChefDeProjet()
     {
         return $this->chefDeProjet;
+    }
+    /**
+     * Set chefDeProjet
+     *
+     * @return int
+     */
+    public function setChefDeProjet($chefDeProjet)
+    {
+        $this->chefDeProjet=$chefDeProjet;
     }
     /**
      * Set Helper

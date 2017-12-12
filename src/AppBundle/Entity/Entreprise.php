@@ -20,11 +20,7 @@ class Entreprise
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
-     * One entreprise has One utilisateur.
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur", mappedBy="idEntreprise")
      *
-     * One entreprise has One projet.
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", inversedBy="idEntreprise")
      *
      */
     private $id;
@@ -77,6 +73,10 @@ class Entreprise
      * @ORM\Column(name="siret", type="integer")
      */
     private $siret;
+    /**
+     *@ORM\Column(name="id_utilisateur", type="integer", nullable=true)
+    */
+    private $idUtilisateur;
 
 
     /**

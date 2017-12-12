@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Projet;
 
 /**
  * CompteRendu
@@ -31,8 +32,8 @@ class CompteRendu
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Projet", inversedBy="id")
-     * ORM\@JoinColumn(name="customer_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Projet")
+     * @ORM\JoinColumn(name="projet_id", referencedColumnName="id")
      */
     private $idProjet;
 

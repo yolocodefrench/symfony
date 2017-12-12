@@ -22,6 +22,7 @@ class EntrepriseController extends Controller
      */
     public function indexAction()
     {
+
         $em = $this->getDoctrine()->getManager();
 
         $entreprises = $em->getRepository('AppBundle:Entreprise')->findAll();
@@ -39,6 +40,7 @@ class EntrepriseController extends Controller
      */
     public function newAction(Request $request)
     {
+        $this->denyAccessUnlessGranted("ROLE_ADMIN");
         $entreprise = new Entreprise();
         $form = $this->createForm('AppBundle\Form\EntrepriseType', $entreprise);
         $form->handleRequest($request);
@@ -81,6 +83,7 @@ class EntrepriseController extends Controller
      */
     public function editAction(Request $request, Entreprise $entreprise)
     {
+        $this->denyAccessUnlessGranted("ROLE_ADMIN");
         $deleteForm = $this->createDeleteForm($entreprise);
         $editForm = $this->createForm('AppBundle\Form\EntrepriseType', $entreprise);
         $editForm->handleRequest($request);
@@ -106,6 +109,7 @@ class EntrepriseController extends Controller
      */
     public function deleteAction(Request $request, Entreprise $entreprise)
     {
+        $this->denyAccessUnlessGranted("ROLE_ADMIN");
         $form = $this->createDeleteForm($entreprise);
         $form->handleRequest($request);
 
